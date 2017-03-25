@@ -26,9 +26,14 @@
 
 
 
-
+        {% if user.is_authenticated %}
         <p><a class="btn btn-lg btn-success"
+              href="{% url 'my_crs.views.srv' %}" role="button">Get started today &raquo;</a></p>
+        {% else %}
+            <p><a class="btn btn-lg btn-success"
               href="{% url 'my_crs.views.register' %}" role="button">Get started today &raquo;</a></p>
+        {% endif %}
+
       </div>
 
       <!-- Example row of columns -->
