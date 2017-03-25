@@ -1,0 +1,29 @@
+{% extends 'assets/pages/new/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block main %}
+    <div class="row">
+    <br>
+        <div class="col-sm-offset-3 col-md-4">
+            <h2 class="text-center">Add Your Reviews</h2>
+
+<form class="form-horizontal" action="{% url 'my_crs.views.re_form'%}" method="post" enctype="multipart/form-data">{% csrf_token %}
+
+                            {{ form |crispy}}
+      <p>if the required shop is not in the list click here to add your shop.
+
+      <a href="{% url 'my_crs.views.srv' %}">Add Shops</a>
+      </p>
+      <input type="submit" class="btn btn-primary">
+                    </form>
+</div>
+        </div>
+{% endblock %}
+
+
+
+
+
+
+
+

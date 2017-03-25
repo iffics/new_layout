@@ -1,0 +1,21 @@
+{% extends 'assets/pages/new/base.html' %}
+{% load crispy_forms_tags %}
+            {% block main %}
+            <div class="row">
+
+                <div class="col-sm-offset-3 col-sm-5">
+                    <h2 class="text-center ">Register your shops here</h2>
+<form class="form-horizontal" action=""  method="post" enctype="multipart/form-data">
+
+                            {% csrf_token %}
+                            {{ form | crispy }}
+                            <input type="submit" class="btn btn-primary"/>
+
+
+
+                    </form>
+
+
+                </div>
+            </div>
+            {% endblock main %}

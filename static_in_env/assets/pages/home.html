@@ -1,0 +1,160 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="{% static 'assets/BS/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/BS/css/bootstrap-theme.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/BS/css/my.css' %}">
+    <title>{% block title %}Home {% endblock title %}</title>
+
+</head>
+
+
+<style type="text/css">
+
+/* mycss has to be here again*/
+</style>
+
+</head>
+
+<body>
+
+
+
+	<div class="site-wrapper">
+  <div class="site-wrapper-inner">
+    <div class="cover-container">
+      <div class="masthead clearfix">
+        <div class="inner">
+          <h3 class="masthead-brand"><img  class="img-rectangle img-responsive" width="160" src="{% static 'assets/BS/img/rev.png' %}"></h3>
+
+          <ul class="nav masthead-nav">
+            <li class="active">
+              <a href="{% url 'home' %}" target=
+              "_blank">Home</a>
+            </li>
+
+            <li>
+
+              <a href="{% url 'my_crs.views.re_form' %}">{% if user.is_authenticated %}Add Reviews</a>{% endif %}
+
+
+            </li>
+
+            <li>
+              <a href="{% url 'my_crs.views.srv' %}">{% if user.is_authenticated %}Add Shops</a>{% endif %}
+            </li>
+            <li>
+              <a href="{% url 'my_crs.views.s_detail' %}">Registerd Shops</a>
+
+            </li>
+            <li>
+                <a href="{% url 'my_crs.views.revs' %}">Reviews</a>
+            </li>
+
+        <li>
+         <a href="{% url 'my_crs.views.login_user' %}">{% if not user.is_authenticated %}Login</a>{% endif %}
+        </li>
+              <li>
+                  {% if not user.is_authenticated %}
+              <a href="{% url 'my_crs.views.register' %}">SignUp</a>
+                  {% else %}
+                  <a href="{% url 'my_crs.views.logout_user' %}">Logout</a>
+                  {% endif %}
+            </li>
+
+
+          </ul>
+        </div>
+      </div>
+{% block to_be_replaceforlogin %}
+      <div class="inner cover">
+        <br>
+        <br>
+        <h1 class="cover-heading"><i>Hello {% if user.is_authenticated %} {{ user.username|upper }}</i> {% else %}Quetta {% endif %}</h1>
+        {% if user.is_authenticated %}
+        <p class="lead">This app will help & save you from the fraud,
+                    price hiking and bad reputation of the shops selling electronic devices
+                    almost needed by every individual of our society.
+                    This app helps you buy things at reasonable prices without being cheated
+                    and fooled.
+          </p>
+        {% else %}
+            <p class="lead">what this app does is to save you from the fraud,
+                    price hiking and bad reputation of the shops selling electronic devices
+                    almost needed by every individual of our society.
+                    This app helps you buy things at reasonable prices without being cheated
+                    and fooled.
+          </p>
+        {% endif %}
+
+          <div class="container">
+	<form action="{% url 'my_crs.views.s_detail' %}" method="GET">
+        <div class="row">
+        <div class="col-md-6">
+    		<h2><b>Search Registered Shops</b></h2>
+            <div id="custom-search-input">
+                <div class="input-group col-md-12">
+                    <input type="text" class="form-control input-lg" placeholder="Search" name="q" value="{{ request.Get.q }}"/>
+                    <span class="input-group-btn">
+                        <button class="btn btn-info btn-lg" type="button">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+	</div>
+   </form>
+</div>
+
+
+{% endblock to_be_replaceforlogin %}
+
+
+
+
+
+
+      </div>
+
+      <div class="mastfoot">
+        <div class="inner">
+          <!-- Validation -->
+
+
+
+
+          <p>© 2016 Ikk ~ <a href=
+          "http://getbootstrap.com/">Mohammad Irfan</a></p>
+        </div>
+      </div>
+    </div>
+</div>
+</div>
+
+
+
+
+
+
+<script src="{% static 'assets/BS/js/jquery.js' %}"/>
+<script src="{% static 'assets/BS/js/bootstrap.min.js' %}"/>
+<script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        window.alert = function(){};
+        var defaultCSS = document.getElementById('bootstrap-css');
+        function changeCSS(css){
+            if(css) $('head > link').filter(':first').replaceWith('<link rel="stylesheet" href="'+ css +'" type="text/css" />');
+            else $('head > link').filter(':first').replaceWith(defaultCSS);
+        }
+        $( document ).ready(function() {
+          var iframe_height = parseInt($('html').height());
+          window.parent.postMessage( iframe_height, 'http://bootsnipp.com');
+        });
+    </script>
+</body>
+</html>

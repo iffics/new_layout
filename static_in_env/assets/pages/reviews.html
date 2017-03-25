@@ -1,0 +1,74 @@
+{% extends 'assets/pages/new/base.html' %}
+
+
+        {% block main %}
+
+        <div class="row ">
+            <h2 class="text-center ">List of reviews</h2><hr>
+
+
+
+                   {% for rev in review %}
+
+
+                <div class="col-sm-offset-3 col-md-6 thumbnail" >
+                <style>
+                    .thumbnail{
+{#                        color: #1b6d85;#}
+{#                        border-color: #1b6d85;#}
+{#                        border-style: dashed;#}
+                          border-bottom: groove;
+                        border-top: groove;
+
+                    }
+                </style>
+                <h4 class="badge">Product Name: {{rev.product_name }}</h4>
+                    {% if rev.product_image %}
+                    <img src="{{ rev.product_image.url }}" width="200" class="img-responsive"/>
+                    {% endif %}
+                    <small class="label label-success">posted {{ rev.date|timesince }} ago</small><br>
+                    <small class="label label-primary">Review Title: {{ rev.comment_title}}</small><br>
+                    <h4 class="badge">Comment:</h4><br><strong><i>{{ rev.comment}}</i></strong>
+                    {% if rev.r_user %}
+                    <small class="label label-warning">By {{ rev.r_user.username }}</small><br><br>
+                    {% endif %}
+                </div>
+
+
+                {% endfor %}
+
+
+</div>
+
+
+     <div class="pagination">
+    <span class="step-links">
+        {% if review.has_previous %}
+            <ul class="pager">
+            <li>
+            <a href="?page={{ review.previous_page_number }}">previous</a></li>
+            </ul>
+        {% endif %}
+
+        <span class="current">
+            Page {{ review.number }} of {{ review.paginator.num_pages }}.
+        </span>
+
+        {% if review.has_next %}
+            <ul class="pager">
+            <li>
+            <a href="?page={{ review.next_page_number }}">next</a></li>
+            </ul>
+        {% endif %}
+    </span>
+
+
+
+
+
+        </div>
+    {% endblock main %}
+
+
+
+

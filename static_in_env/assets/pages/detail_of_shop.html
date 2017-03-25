@@ -1,0 +1,76 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'assets/BS/css/bootstrap.min.css' %}">
+
+</head>
+<body>
+
+
+    <div class="container ">
+        <div class="row ">
+
+
+
+            <a href="{% url 'my_crs.views.home' %}"> <h3 class="text-center">Return Home</h3></a>
+            <a href="{% url 'my_crs.views.re_form' %}"> <h3 class="text-center">Add Reivew</h3></a>
+                  <div class="col-sm-2 btn-info">
+                   <h3 class="text-center">{{title|linebreaks }}</h3>
+                    <img src="{% static 'assets/BS/img/3.jpg' %}" class="img-thumbnail img-thumbnail img-responsive"/>
+                    <h4 class="text-center">{{ instance.address|linebreaks }}{{ instance.cellnum|linebreaks }}</h4>
+
+                    </div>
+
+                    <div class=" col-md-5 col-md-offset-1">
+
+                    {% for x in instance.reviews_set.all %}
+                        <h4 class="btn-info">Review About: {{x.product_name}}</h4>
+                    <small class="badge">Review Title: {{ x.comment_title}}</small>
+                        <br>
+                        <br>
+                        <br>
+                    <img src="{% static 'assets/BS/img/3.jpg' %}"class=" text-center img-thumbnail img-responsive"><br><br>
+                    <p class="text-capitalize text-center btn-success">{{ x.comment }}</p><hr>
+                        <br>
+                        <hr>
+
+                   <!-- <h2 class="caption">Review</h2>-->
+
+                    {% endfor %}
+
+                    </div>
+
+
+        </div>
+
+      <!--  <div class="row">
+
+                <div class=" col-md-4 thumbnail ">
+                <h2 class="caption">Reviews</h2>
+                    {% for x in instance.reviews_set.all %}
+                    <p>Review About: {{x.product_name}}</p>
+                    <p>Review Title: {{ x.comment_title}}</p>
+                    {{ x.comment|linebreaks }}
+                        <hr>
+
+                    <h2 class="caption">Reviews</h2>
+                    {% endfor %}
+
+                    </div>
+        </div>
+        -->
+    </div>
+
+
+
+
+
+
+
+<script src="{% static 'assets/BS/js/jquery.js' %}"/>
+<script src="{% static 'assets/BS/js/bootstrap.min.js' %}"/>
+</body>
+</html>

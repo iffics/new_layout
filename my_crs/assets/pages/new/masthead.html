@@ -1,0 +1,38 @@
+{% load static %}
+<div class="row">
+<div class="masthead">
+        <h3 class="panel  text-center">Customer Review System</h3>
+        <style>
+            .masthead h3{
+                font-family:"Harlow Solid Italic";
+                font-size: 34px;
+                background-color: #e4b9c0;
+            }
+        </style>
+        <nav>
+          <ul class="nav nav-justified">
+            <li class=><a href="{% url 'home' %}">Home</a></li>
+            {% if user.is_authenticated %}
+               <li><a href="{% url 'my_crs.views.revs' %}">Reviews</a></li>
+               <li><a href="{% url 'my_crs.views.re_form' %}">Add Reviews</a></li>
+               <li><a href="{% url 'my_crs.views.s_detail' %}">Registerd Shops</a></li>
+                <li><a href="{% url 'my_crs.views.srv' %}">Add Shops</a></li>
+                <li><a href="{% url 'my_crs.views.logout_user' %}">Logout</a></li>
+
+              {% endif %}
+
+              {% if not user.is_authenticated %}
+              <li><a href="{% url 'my_crs.views.revs' %}">Reviews</a></li>
+              <li><a href="{% url 'my_crs.views.s_detail' %}">Registerd Shops</a></li>
+              <li><a href="{% url 'my_crs.views.login_user' %}">Login</a></li>
+              <li><a href="{% url 'my_crs.views.register' %}">SignUp</a></li>
+              {% endif %}
+
+
+
+
+
+          </ul>
+        </nav>
+      </div>
+</div>

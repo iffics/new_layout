@@ -1,0 +1,44 @@
+/*background-image: url('../banner.png') ;
+	color: indigo;
+	
+	background-size: 100% 100%;
+	background-attachment: fixed;
+	min-height: 400px;
+	margin-top: 0px;
+	margin-bottom: 10px;
+
+	width: 1000px;
+	height: 10px;
+	background-color: white;
+	color: indigo;
+	margin-left: 50px;
+	text-align: center;*/
+
+
+
+
+.jumbotron{
+	background-color: #006B3C; 
+	color: white;
+}
+
+#well{
+	background-color: #006B3C; 
+	border-width: 160px;
+	border: 160px;
+	color: white;
+}
+#well1{
+	background-color: #006B3C; 
+	border-width: 160px;
+	border: 160px;
+	color: white;
+}
+.well{
+	background-color: #006B3C; 
+}
+
+.navbar-nav li a{
+	color: indigo;
+	font-size: 20px;
+}

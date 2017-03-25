@@ -1,0 +1,59 @@
+.navbar-header{
+	/*background-image: url('../banner.png') ;
+	color: indigo;
+	
+	background-size: 100% 100%;
+	background-attachment: fixed;
+	min-height: 400px;
+	margin-top: 0px;
+	margin-bottom: 10px;
+
+	width: 1000px;
+	height: 10px;
+	background-color: white;
+	color: indigo;
+	margin-left: 50px;
+	text-align: center;*/
+
+	background-image: url('img/blog.jpg');
+}
+
+/*
+.no-margin{
+	margin: 0px;
+}
+.no-padding{
+	padding: 0px;
+}
+.col-md-6 img{
+
+	border: solid 3px indigo;
+	margin: 0px;
+	padding: 0px;
+
+}
+.row{
+	border: 2px solid green;
+	border-color: pink;
+}*/
+.my{
+	border: 2px solid indigo;
+	background: #66CCCC;
+	margin-top: 50px;
+	margin-left: 20px;
+}
+.my h4{
+	border: 2px solid black;
+	color: white;
+	background: gray;
+	text-align: center;
+}
+
+.container-fluid img{
+	background: indigo;
+	
+}
+nav{
+	background: black;
+}
+

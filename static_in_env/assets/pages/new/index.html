@@ -1,0 +1,69 @@
+{% extends 'assets/pages/new/base.html' %}
+
+
+
+
+
+      <!-- Jumbotron -->
+      {% block jumbo %}
+        <div class="jumbotron">
+         <h1 class="cover-heading"><i>Hello {% if user.is_authenticated %} {{ user.username|upper }}</i> {% else %}Quetta {% endif %}</h1>
+        {% if user.is_authenticated %}
+        <p class="lead">This app will help & save you from the fraud,
+                    price hiking and bad reputation of the shops selling electronic devices
+                    almost needed by every individual of our society.
+                    This app helps you buy things at reasonable prices without being cheated
+                    and fooled.
+          </p>
+        {% else %}
+            <p class="lead">what this app does is to save you from the fraud,
+                    price hiking and bad reputation of the shops selling electronic devices
+                    almost needed by every individual of our society.
+                    This app helps you buy things at reasonable prices without being cheated
+                    and fooled.
+          </p>
+        {% endif %}
+
+
+
+
+        <p><a class="btn btn-lg btn-success"
+              href="{% url 'my_crs.views.register' %}" role="button">Get started today &raquo;</a></p>
+      </div>
+
+      <!-- Example row of columns -->
+
+
+    <form action="{% url 'my_crs.views.s_detail' %}" method="GET">
+        <div class="row">
+        <div class="col-sm-offset-3 col-md-6">
+    		<h2><b>Search Registered Shops</b></h2>
+            <div id="custom-search-input">
+                <div class="input-group col-md-12">
+                    <input type="text" class="form-control input-lg" placeholder="Search" name="q" value="{{ request.Get.q }}"/>
+                    <span class="input-group-btn">
+                        <button class="btn btn-info btn-lg" type="button">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+	</div>
+   </form>
+      {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>

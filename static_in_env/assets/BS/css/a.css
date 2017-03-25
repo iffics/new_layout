@@ -1,0 +1,9 @@
+{% load staticfiles% }
+.container .row .col-sm-offset-1 .col-md-6 .thumbnail{
+    background-color: #1b6d85;
+    border-bottom-color: #66CCCC;
+}
+/*.container{*/
+    /*background: gold url("3.jpg") no-repeat center center fixed;*/
+/*}*/
+

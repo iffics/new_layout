@@ -1,0 +1,100 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'assets/BS/css/bootstrap.min.css' %}">
+</head>
+<body>
+
+<style>
+        .thumbnail{
+            border-color: black;
+            border-style: dashed;
+            border-top-color: #4cae4c;
+            border-bottom: groove;
+            border-top: groove;
+            border-left: groove;
+            border-right: groove;}
+    </style>
+
+
+
+    <div class="container ">
+        <div class="row ">
+
+
+
+            <a href="{% url 'my_crs.views.home' %}"> <h3 class="text-center">Return Home</h3></a>
+            <hr>
+            <br>
+
+                  <div class="col col-lg-offset-5 col-sm-3 thumbnail">
+                   <h3 class="text-center">{{title|linebreaks }}</h3>
+                    {% if instance.image %}
+                      <img src="{{ instance.image.url }}"  class=" img-thumbnail img-responsive"/>
+                    {% endif %}
+                      <h4 class="text-center">{{ instance.address|linebreaks }}{{ instance.cellnum|linebreaks }}</h4>
+
+                    </div>
+
+
+
+
+
+        </div>
+
+
+       {% for r in instance.reviews_set.all %}
+
+
+        <div class="row ">
+
+                    <div class="col-sm-offset-2 col-sm-8 thumbnail">
+                    <h4 class="badge">Product Name: {{r.product_name }}</h4>
+                    {% if r.product_image %}
+                    <img src="{{ r.product_image.url }}" width="200" class="img-responsive"/>
+                    {% endif %}
+                    <small class="label label-success">posted at {{ r.date }}</small>
+                    <small class="badge">posted by {{instance.user.username }}</small>
+                    <h4>Review Title: {{ r.comment_title}} </h4>
+                    <h4>Comment: {{ r.comment}} </h4>
+                    <span><h5 label class=" label label-primary">Adrress: {{ instance.address }}</h5></span><br><br>
+                    <div class="fb-like "  data-href="{{ request.build_absolute_uri }}" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+                    <br><br>
+                    <div id="fb-root" class="col-sm-offset-2 col-md-4"></div>
+<script>(function(d, s, id) {
+var js, fjs = d.getElementsByTagName(s)[0];
+if (d.getElementById(id)) return;
+js = d.createElement(s); js.id = id;
+js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.8";
+fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<div class="fb-comments" data-href="{{ request.build_absolute_uri }}" data-numposts=2>
+</div>
+
+
+
+        </div>
+           <br>
+        {% endfor %}
+
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+
+<script src="{% static 'assets/BS/js/jquery.js' %}"/>
+<script src="{% static 'assets/BS/js/bootstrap.min.js' %}"/>
+</body>
+</html>
