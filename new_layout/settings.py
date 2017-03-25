@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '@p&x-145u#gqqeap0r*c32c7r*gtzsj%4e-sd9qz20rs%$m9)e'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -122,7 +122,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static_in_env")
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR,'templates'),
     os.path.join(BASE_DIR,'my_crs'),
-    os.path.join(BASE_DIR,'static_in_pro'),
+    os.path.join(BASE_DIR,'static_inprov'),
 
 
 )
