@@ -126,7 +126,7 @@ STATICFILES_DIRS = (
 
 
 )
-MEDIA_URL = '/media/'
+MEDIA_URL = '/media_cdn/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media_cdn')
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
